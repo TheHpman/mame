@@ -40,6 +40,7 @@ K051960_CB_MEMBER(_88games_state::sprite_callback)
 
 ***************************************************************************/
 
+#if 0
 K051316_CB_MEMBER(_88games_state::zoom_callback)
 {
 	enum { zoom_colorbase = 768 / 16 };
@@ -48,6 +49,7 @@ K051316_CB_MEMBER(_88games_state::zoom_callback)
 	*code |= ((*color & 0x07) << 8);
 	*color = zoom_colorbase + ((*color & 0x38) >> 3) + ((*color & 0x80) >> 4);
 }
+#endif
 
 /***************************************************************************
 
@@ -66,12 +68,12 @@ uint32_t _88games_state::screen_update_88games(screen_device &screen, bitmap_ind
 		m_k052109->tilemap_draw(screen, bitmap, cliprect, 2, 0, 0); // tile 2
 		m_k052109->tilemap_draw(screen, bitmap, cliprect, 1, 0, 0); // tile 1
 		m_k051960->k051960_sprites_draw(bitmap, cliprect, screen.priority(), 0, 0);
-		m_k051316->zoom_draw(screen, bitmap, cliprect, 0, 0);
+		//		m_k051316->zoom_draw(screen, bitmap, cliprect, 0, 0);
 	}
 	else
 	{
 		m_k052109->tilemap_draw(screen, bitmap, cliprect, 2, TILEMAP_DRAW_OPAQUE, 0);   // tile 2
-		m_k051316->zoom_draw(screen, bitmap, cliprect, 0, 0);
+		//		m_k051316->zoom_draw(screen, bitmap, cliprect, 0, 0);
 		m_k051960->k051960_sprites_draw(bitmap, cliprect, screen.priority(), 0, 0);
 		m_k052109->tilemap_draw(screen, bitmap, cliprect, 1, 0, 0); // tile 1
 		m_k051960->k051960_sprites_draw(bitmap, cliprect, screen.priority(), 1, 1);
